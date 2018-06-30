@@ -2,10 +2,12 @@
 
 set -eu
 
-echo "Rrestarting db container ..."
+echo "Restarting db container ..."
 
 cd `dirname $0`
 . ../.env
+
+DB_CONTAINER_NAME="${DB_CONTAINER_NAME_PREFIX}-mysql"
 
 RUNNING_ID=$(docker ps -q -f "name=${DB_CONTAINER_NAME}")
 if [ -n "$RUNNING_ID" ]; then
